@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>User Registration Form</title> <!-- 브라우저 탭에 표시될 제목 -->
+  </head>
+  <body>
+    <!-- 사용자 등록 폼 시작 -->
+    <form action="/submit" method="POST"> <!-- 폼 제출 시 서버로 POST 방식 전송 -->
+
+      <!-- 사용자 정보 입력 영역 -->
+      <div>
+        <!-- 사용자 이름 입력 -->
+        <label for="username">사용자 이름:</label>
+        <input type="text" id="username" name="username" placeholder="이름을 입력하세요."><br><br>
+
+        <!-- 이메일 입력 -->
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" placeholder="example@domain.com"><br><br>
+
+        <!-- 비밀번호 입력 -->
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요."><br><br>
+      </div>
+
+      <!-- 생년월일, 나이, 만족도 입력 영역 -->
+      <div>
+        <!-- 생년월일 입력 -->
+        <label for="birthdate">생년월일:</label>
+        <input type="date" id="birthdate" name="birthdate" placeholder="YYYY-MM-DD" min="1920-01-01" max="2025-12-31"><br><br>
+
+        <!-- 나이 입력 -->
+        <label for="age">나이 (18세 ~ 100세):</label>
+        <input type="number" id="age" name="age" min="18" max="100"><br><br>
+
+        <!-- 서비스 만족도 입력 (슬라이더) -->
+        <label for="satisfaction">서비스 만족도 (1 ~ 10):</label>
+        <input type="range" id="satisfaction" name="satisfaction" min="1" max="10" value="5"><br><br>
+      </div>
+
+      <!-- 성별, 관심사, 국가 선택 영역 -->
+      <div>
+        <!-- 성별 선택 (라디오 버튼) -->
+        <label>성별:</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">male</label>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">female</label><br><br>
+
+        <!-- 관심사 선택 (체크박스) -->
+        <label>관심사:</label>
+        <input type="checkbox" id="coding" name="interests" value="Coding">
+        <label for="coding">Coding</label>
+
+        <input type="checkbox" id="gaming" name="interests" value="Gaming">
+        <label for="gaming">Gaming</label>
+
+        <input type="checkbox" id="reading" name="interests" value="Reading">
+        <label for="reading">Reading</label><br><br>
+
+        <!-- 국가 선택 (드롭다운 메뉴) -->
+        <label for="country">국가:</label>
+        <select id="country" name="country">
+          <option value="">-- 선택하세요 --</option>
+          <option value="KR">South Korea</option>
+          <option value="US">USA</option>
+          <option value="JP">Japan</option>
+          <option value="CN">China</option>
+          <option value="UK">UK</option>
+        </select>
+      </div>
+
+      <hr> <!-- 입력 항목과 버튼을 구분하는 수평선 -->
+
+      <!-- 제출 및 초기화 버튼 -->
+      <button type="submit">제출</button> <!-- 입력 내용을 서버로 전송 (버튼 형식)-->
+      <button type="reset">초기화</button> <!-- 모든 입력값 초기화 (버튼 형식) -->
+    </form>
+    <!-- 사용자 등록 폼 끝 -->
+  </body>
+</html>

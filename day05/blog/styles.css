@@ -1,0 +1,116 @@
+/* 공통 초기화 - 모든 요소의 기본 여백 제거 및 박스 사이징 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 전체 문서 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 1rem;
+  max-width: 100%;
+}
+
+/* 헤더 스타일 */
+header {
+  padding: 1rem;
+  border-bottom: 0.1rem solid #333;
+  margin-bottom: 1rem;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* 제목 */
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.2rem;
+}
+
+/* 내비게이션 */
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* 게시글 섹션 */
+section#posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2vw 1vw;
+}
+.post {
+  padding: 1rem;
+  border: 0.1rem solid #ccc;
+  margin-bottom: 1rem;
+}
+
+/* 사이드바 */
+aside {
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5em;
+}
+
+/* 푸터 */
+footer {
+  padding: 1rem;
+  border-top: 0.1rem solid #333;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* 태블릿 반응형 */
+@media (min-width: 768px) {
+  body {
+    max-width: 90vw;
+    margin: 0 auto;
+  }
+  nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  section#posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  aside {
+    padding: 1.5rem;
+  }
+}
+
+/* 데스크톱 반응형 */
+@media (min-width: 1024px) {
+  body {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+  section#posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  aside {
+    width: 25vw;
+    margin-left: 2vw;
+  }
+}

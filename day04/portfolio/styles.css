@@ -1,0 +1,126 @@
+/* 기본 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 본문 스타일 */
+body {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* 헤더 */
+header {
+  padding: 20px;
+  border-bottom: 2px solid #333;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+/* 제목 */
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+/* 네비게이션 */
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+nav ul li {
+  display: inline-block;
+  margin: 5px 10px;
+}
+nav a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* 프로젝트 섹션 */
+#projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 프로젝트 카드 */
+.project {
+  flex: 1 1 30%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+/* 사이드바 */
+aside {
+  padding: 10px;
+  border-left: 3px solid #007bff;
+  margin: 20px;
+  position: relative;
+}
+aside h3 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+aside ul {
+  list-style-type: square;
+  margin-top: 40px;
+  padding-left: 20px;
+}
+/* 푸터 */
+footer {
+  text-align: center;
+  margin-top: 30px;
+}
+footer p:first-child {
+  display: none; /* 선택사항 */
+}
+
+/* 반응형 태블릿 (768px~1023px) */
+@media (max-width: 1023px) {
+  .project {
+    flex: 1 1 45%;
+  }
+  aside h3 {
+    position: static;
+    margin-bottom: 10px;
+  }
+}
+
+/* 반응형 모바일 (최대 767px) */
+@media (max-width: 767px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .project {
+    flex: 1 1 100%;
+  }
+  aside {
+    border-left: none;
+    border-top: 3px solid #007bff;
+    margin-top: 30px;
+  }
+}

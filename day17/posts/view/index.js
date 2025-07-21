@@ -1,5 +1,5 @@
-// detail.js (포스트 상세 화면용 JavaScript)
-const apiUrl = "<https://jsonplaceholder.typicode.com>";
+import { API_URL } from "../../util/consts/api-consts.js";
+import cacher from "../../util/cacher.js";
 
 // 포스트 상세 정보 표시
 async function displayPostDetail() {
@@ -8,15 +8,21 @@ async function displayPostDetail() {
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get("postId");
     if (!postId) throw new Error("No post ID provided");
-    let post = {};
 
-    // await fetch(`${apiUrl}/posts/${postId}`);
+    const postCache = cacher.getItem(`post-${postId}`);
+    if (postCache) {
+      const post = JSON.parse(postCache);
+      renderPost(post);
+      console.log("Post loaded from localStorage");
+      return;
+    }
 
-    // localStorage에서 캐시 확인 (도전 과제)
-    // localStorage에서 캐시가 조건에 충족하면 캐시 사용하여 post 초기화 (도전 과제)
-    // localStorage에서 캐시가 조건에 충족하지 않으면 상세 데이터 fetch하여 post 초기화
-
+    const response = await fetch(`${API_URL}/posts/${postId}`);
+    if (!response.ok) throw new Error("API 통신 오류");
+    const post = await response.json();
     renderPost(post);
+    console.log("Post fetched from API");
+    cacher.setItem(`post-${postId}`, JSON.stringify(post));
   } catch (error) {
     console.error("Error:", error.message);
     document.getElementById("post-detail").innerHTML =
